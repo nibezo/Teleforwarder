@@ -18,6 +18,11 @@ def all_the_same(elements):
 
 @bot.message_handler(content_types=['text'])
 def forward_text(message):
+    print(message.chat.id, '\n')
+    print(message.chat.title)
+    print(message.text)
+    if str(message.chat.id == '-1001697120368') and str(message.text).lower() == 'да':
+        bot.reply_to(message, "Провода")
     if str(message.chat.id) == '-783236302':
         if 'с4' in str(message.text).lower() or 'c4' in str(message.text).lower():
             print(message)
