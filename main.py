@@ -3,12 +3,8 @@ bot = telebot.TeleBot("5036901574:AAHr80p-rd6BbjXT6h40YsOLybZjxeJ3gM4", parse_mo
 
 
 @bot.message_handler(content_types=['text'])
-def check(message):
-    print(f'Chat title: {message.chat.title}\nChat id: {message.chat.id}\n')
-
-
-@bot.message_handler(content_types=['text'])
 def forward_text(message):
+    print(f'Chat title: {message.chat.title}\nChat id: {message.chat.id}\n')
     if str(message.chat.id == '-1001697120368') and str(message.text).lower() == 'да':
         bot.reply_to(message, "Провода")
     if str(message.chat.id) == '-1001697120368':
