@@ -1,12 +1,18 @@
 import telebot
+from random import randint
 bot = telebot.TeleBot("5036901574:AAHr80p-rd6BbjXT6h40YsOLybZjxeJ3gM4", parse_mode=None)
 
 
 @bot.message_handler(content_types=['text'])
 def forward_text(message):
+    answers = ['Дед пихто', 'Конь в пальто']
     print(f'Chat title: {message.chat.title}\nChat id: {message.chat.id}\n')
     if str(message.chat.id == '-1001697120368') and str(message.text).lower() == 'да':
         bot.reply_to(message, "Провода")
+    if str(message.chat.id == '-1001697120368') and str(message.text).lower() == 'нет':
+        bot.reply_to(message, "Лягушки ответ")
+    if str(message.chat.id == '-1001697120368') and str(message.text).lower() == 'кто?':
+        bot.reply_to(message, answers[randint(0, 2)])
     if str(message.chat.id) == '-1001697120368':
         if 'с4' in str(message.text).lower() or 'c4' in str(message.text).lower():
             bot.forward_message('-1001793220760', '-1001697120368', message.id)
